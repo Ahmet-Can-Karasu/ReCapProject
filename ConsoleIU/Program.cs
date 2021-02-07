@@ -8,7 +8,7 @@ namespace ConsoleIU
     {
         static void Main(string[] args)
         {
-            CarManager carManager = new CarManager(new InMemoryCarDal());
+            CarManager carManager =  new CarManager(new InMemoryCarDal());
 
             foreach (var car in carManager.GetAll())
             {
