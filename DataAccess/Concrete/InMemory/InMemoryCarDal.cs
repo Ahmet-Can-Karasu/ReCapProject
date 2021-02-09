@@ -3,6 +3,7 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace DataAccess.Concrete.InMemory
@@ -15,9 +16,9 @@ namespace DataAccess.Concrete.InMemory
         {
             _cars = new List<Car> { 
          
-            new Car { Id = 1, BrandId = "A", ColorId = "Siyah", DailyPrice = 100000, Description = "Audi", ModelYear = 2019 },
-            new Car { Id = 2, BrandId = "A", ColorId = "Mavi", DailyPrice = 200000, Description = "Bmw", ModelYear = 2020 },
-            new Car { Id = 3, BrandId = "A", ColorId = "Kırmızı", DailyPrice = 150000, Description = "Ferrari", ModelYear = 2021 }
+            new Car { Id = 1, BrandId = 1, ColorId = 1, DailyPrice = 100000, Descriptions = "Audi", ModelYear = "2019" },
+            new Car { Id = 2, BrandId = 2, ColorId = 2, DailyPrice = 200000, Descriptions = "Bmw", ModelYear = "2020" },
+            new Car { Id = 3, BrandId = 2, ColorId = 3, DailyPrice = 150000, Descriptions = "Ferrari", ModelYear = "2021" }
             };
 
         }
@@ -34,9 +35,19 @@ namespace DataAccess.Concrete.InMemory
             _cars.Remove(carToDelete);
         }
 
+        public Car Get(Func<Car, bool> filter)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Car> GetAll()
         {
             return _cars;
+        }
+
+        public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
+        {
+            throw new NotImplementedException();
         }
 
         public List<Car> GetById(int Id)
@@ -53,7 +64,7 @@ namespace DataAccess.Concrete.InMemory
             carToUpdate.ColorId = car.ColorId;
             carToUpdate.ModelYear = car.ModelYear;
             carToUpdate.DailyPrice = car.DailyPrice;
-            carToUpdate.Description = car.Description;
+            carToUpdate.Descriptions = car.Descriptions;
 
 
 
