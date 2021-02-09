@@ -14,9 +14,40 @@ namespace Business.Concrete
         {
             _brandDal=brandDal;
         }
+
+        public void Add(Brand brand)
+        {
+            if (brand.BrandName.Length>2)
+            {
+                _brandDal.Add(brand);
+            }
+            else
+            {
+                Console.WriteLine("Marka ismini lütfen doğru giriniz");
+            }
+        }
+
+        public void Delete(Brand brand)
+        {
+            _brandDal.Delete(brand);
+        }
+
         public List<Brand> GetAll()
         {
             return _brandDal.GetAll();
         }
+
+        public List<Brand> GetCarsByBrandId(int id)
+        {
+            return _brandDal.GetAll(c=> c.BrandId == id);
+
+        }
+
+        public void Updete(Brand brand)
+        {
+            _brandDal.Update(brand);
+        }
+
+
     }
 }
