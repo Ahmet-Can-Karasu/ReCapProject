@@ -37,11 +37,16 @@ namespace Business.Concrete
             return _brandDal.GetAll();
         }
 
-        public List<Brand> GetCarsByBrandId(int id)
+        public Brand GetById(int id)
         {
-            return _brandDal.GetAll(c=> c.BrandId == id);
-
+            return _brandDal.Get(c => c.BrandId == id);
         }
+
+        //public List<Brand> GetCarsByBrandId(int id)
+        //{
+        //    return _brandDal.GetAll(c=> c.BrandId == id);
+
+        //}
 
         public void Updete(Brand brand)
         {

@@ -10,28 +10,14 @@ namespace ConsoleIU
     {
         static void Main(string[] args)
         {
+
             CarManager carManager = new CarManager(new EfCarDal());
-
-            carManager.Add(new Car { DailyPrice = 250 });
-
-
-            foreach (var car in carManager.GetAll())
+            foreach (var car in carManager.GetCarDetails())
             {
-                Console.WriteLine( car.DailyPrice);
+                Console.WriteLine(car.CarName + "/" + car.BrandName + "/" + car.ColorName + "/" + car.DailyPrice);
+
             }
-
-            BrandManager brandManager = new BrandManager(new EfBrandDal());
-
-            brandManager.Add(new Brand { BrandName = "Audi" });
-
-
-            foreach (var brand in brandManager.GetAll())
-            {
-                Console.WriteLine(brand.BrandName);
-            }
-
-
-
+  
         }
     }
 }
