@@ -1,0 +1,18 @@
+﻿using Core.Utilities.Results;
+using Entities.Concrete;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Business.Abstract
+{
+    public interface IRentalService
+    {
+        IDataResult<Rental> GetById(int id);
+        IDataResult<List<Rental>> GetAll();
+
+        IResult Add(Rental rental);
+        IResult Delete(Rental rental);
+        IResult Updete(Rental rental);
+    }
+}
