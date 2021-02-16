@@ -3,7 +3,9 @@ using Business.Constans;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 
@@ -19,11 +21,13 @@ namespace Business.Concrete
         public IResult Add(Rental rental)
         {
 
-            if (rental.ReturnDate < DateTime.Today)
+
+            if (rental.RentDate > rental.ReturnDate)
             {
                 return new ErrorResult(Messages.NotRentalAdded);
             }
             _rentalDal.Add(rental);
+
             return new SuccessResult(Messages.RentalAdded);
         }
 

@@ -21,13 +21,18 @@ namespace ConsoleIU
         }
 
 
-       
+
 
         private static void RentalTest()
         {
             RentalManager rentalManager = new RentalManager(new EfRentalDal());
-            var result = rentalManager.Add(new Rental { CarId = 2, CustomerId = 2, 
-                RentDate = new DateTime(2021, 2, 12), ReturnDate = null });
+            var result = rentalManager.Add(new Rental
+            {
+                CarId = 2,
+                CustomerId = 2,
+                RentDate = new DateTime(2021, 2, 12),
+                ReturnDate = null
+            });
 
             Console.WriteLine(result.Message);
         }
@@ -36,8 +41,13 @@ namespace ConsoleIU
         {
             UserManager userManager = new UserManager(new EfUserDal());
 
-            var result = userManager.Add(new User { FirstName = "AhmetCan", LastName = "Karasu", 
-                Email = "karasu_ahmetcan@hotmail.com", Password = "asdasadda" });
+            var result = userManager.Add(new User
+            {
+                FirstName = "AhmetCan",
+                LastName = "Karasu",
+                Email = "karasu_ahmetcan@hotmail.com",
+                Password = "asdasadda"
+            });
             Console.WriteLine(result.Message);
         }
 
@@ -119,5 +129,8 @@ namespace ConsoleIU
             else
                 Console.WriteLine(result1.Message);
         }
+
+
+
     }
 }

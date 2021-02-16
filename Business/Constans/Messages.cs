@@ -25,7 +25,7 @@ namespace Business.Constans
 
         public static string RentalAdded = "Kiralama başarılı bir şekilde yapılmıştır.";
         public static string NotRentalAdded = "Kiralama başarısız olmuştur.";
-
+        public static string RentalListed = "Güncel kiralanmış araç listesi.";
         public static string RentalUpdated = "Kiralama  başarılı bir şekilde güncellenmiştir.";
         public static string RentalDeleted = "Kiralama  başarılı bir şekilde silinmiştir.";
         public static string CustomerAdded = "Müşteri başarılı bir şekilde eklenmiştir.";
