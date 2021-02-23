@@ -8,6 +8,8 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.Text;
+using Core.Aspects.Autofac.Validation;
+using Business.ValidationRules.FluentValidation;
 
 namespace Business.Concrete
 {
@@ -18,14 +20,17 @@ namespace Business.Concrete
         {
             _rentalDal = rentalDal;
         }
+
+
+        [ValidationAspect(typeof(RentalValidator))]
         public IResult Add(Rental rental)
         {
 
 
-            if (rental.RentDate > rental.ReturnDate)
-            {
-                return new ErrorResult(Messages.NotRentalAdded);
-            }
+            //if (rental.RentDate > rental.ReturnDate)
+            //{
+            //    return new ErrorResult(Messages.NotRentalAdded);
+            //}
             _rentalDal.Add(rental);
 
             return new SuccessResult(Messages.RentalAdded);
